@@ -11,9 +11,9 @@ case `uname` in
 			platform="Mac"
 			;;
 	# TODO: Linux needs more than one target RID
-	# Linux) rid="linux"
-	# 	   platform="Linux"
-	# 	   ;;
+	Linux) rid="linux"
+		   platform="Linux"
+		   ;;
 	*) echo "Unrecognised platform `uname`" 1>&2
 	   exit 1;
 	   ;;
@@ -21,9 +21,6 @@ esac
 
 # log out the RID decided on
 echo "Compiling for $rid on $platform"
-
-# Make sure the source is up to date
-git submodule init && git submodule update
 
 # Build the webview library
 rm -rf build/$rid/
