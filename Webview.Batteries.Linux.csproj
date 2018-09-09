@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <Version>0.0.1</Version>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <Authors>Will Speak</Authors>
+	  <RepositoryUrl>https://github.com/webview-cs/webview-cs-batteries</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/webview-cs/webview-cs-batteries/blob/master/LICENSE</PackageLicenseUrl>
+	  <Description>Webview Native Build (Linux)</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- FIXME: Switch to multi-rid package with builds for x64, x86 & arm -->
+    <Content Include="build\linux\libwebview.so">
+      <PackagePath>runtimes\linux\native\libwebview.so</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+  </ItemGroup>
+
+</Project>
