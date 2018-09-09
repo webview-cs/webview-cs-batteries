@@ -14,4 +14,4 @@ cmake -G "NMake Makefiles" -D BUILD_SHARED_LIBS=ON ../../webview/
 nmake
 
 pushd %~dp0
-dotnet build -c Release Webview.Batteries.Win.csproj
+dotnet pack -c Release Webview.Batteries.Win.csproj
