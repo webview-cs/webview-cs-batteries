@@ -14,7 +14,7 @@ function BuildForRid([string] $rid, [string] $buildscript)
 }
 
 BuildForRid "win-x86" "buildi686.bat"
-BuildForRid "win-x86" "buildi686.bat"
+BuildForRid "win-x64" "buildx86_64.bat"
 
 # Pack it all up
 dotnet pack -c Release Webview.Batteries.Win.csproj

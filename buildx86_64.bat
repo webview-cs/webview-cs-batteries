@@ -1,4 +1,5 @@
 call "%VS150COMNTOOLS%\..\..\VC\Auxiliary\Build\vcvars64.bat"
-pushd %~dp0\rure\regex-capi
-cargo clean
-cargo build --release
+mkdir build\win-x86
+pushd build\win-x86
+cmake -D BUILD_SHARED_LIBS=ON ../../webview/
+msbuild
