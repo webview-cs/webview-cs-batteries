@@ -25,10 +25,9 @@ echo "Compiling for $rid on $platform"
 # Build the webview library
 rm -rf build/$rid/
 mkdir -p build/$rid
-pushd build/$rid
-cmake -D BUILD_SHARED_LIBS=ON ../../webview/
-make
-popd
+(cd build/$rid && \
+	 cmake -D BUILD_SHARED_LIBS=ON ../../webview/ && \
+	 make )
 
 # Pack it all up
 dotnet pack -c Release Webview.Batteries.$platform.csproj
