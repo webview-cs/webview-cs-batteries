@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <Version>0.0.1</Version>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <Authors>Will Speak</Authors>
+	<RepositoryUrl>https://github.com/webview-cs/webview-cs-batteries</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/webview-cs/webview-cs-batteries/blob/master/LICENSE</PackageLicenseUrl>
+	<Description>Webview Native Build (macOS)</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="build\osx\libwebview.dylib">
+      <PackagePath>runtimes\osx\native\libwebview.dylib</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+  </ItemGroup>
+
+</Project>
