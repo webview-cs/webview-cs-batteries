@@ -1,7 +1,7 @@
 version: 1.0.{build}
 image:
   - Visual Studio 2017
-  - Ubuntu1804
+  - ubuntu
 install:
   - git submodule update --init --recursive
 build_script:
