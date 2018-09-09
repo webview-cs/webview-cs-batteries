@@ -8,5 +8,5 @@ if ($PSVersionTable.Platform -eq "Unix")
 }
 else
 {
-    .\build.ps1
+    .\build.bat
 }
