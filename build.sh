@@ -23,6 +23,12 @@ do
 	# log out the RID decided on
 	echo "Compiling for $rid on $platform"
 
+	# If we have a custom install script then run that
+	if [ -f $rid-install.sh ]
+	then
+		bash $rid-install.sh || exit 1
+	fi
+
 	# Clean build directory
 	rm -rf build/$rid/
 	mkdir -p build/$rid
