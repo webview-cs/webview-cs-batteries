@@ -8,7 +8,7 @@ set -e
 sudo apt-get purge -y libwebkit2gtk-4.0-dev libgtk-3-dev
 
 # Add the arm64 architecture
-echo > webview.list <<EOF
+cat > webview.list <<EOF
 deb [arch=arm64] http://ports.ubuntu.com/ bionic main restricted
 deb [arch=arm64] http://ports.ubuntu.com/ bionic-updates main restricted
 deb [arch=arm64] http://ports.ubuntu.com/ bionic universe
@@ -18,10 +18,10 @@ deb [arch=arm64] http://ports.ubuntu.com/ bionic-updates multiverse
 deb [arch=arm64] http://ports.ubuntu.com/ bionic-backports main restricted universe multiverse
 EOF
 sudo mv webview.list /etc/apt/sources.list.d
-sudo mv /etc/apt/sources.list /etc/apt/sources.list.bk
-
+sudo sed -ibk /etc/apt/sources.list -e 's/deb http/deb [arch=amd64] http/g'
 sudo dpkg --add-architecture arm64
-sudo apt-get update || true
+
+sudo apt-get update
 
 # Add the dependencies for our chosen architecture
 sudo apt-get install -y libwebkit2gtk-4.0-dev:arm64 libgtk-3-dev:arm64
