@@ -29,7 +29,7 @@ do
 	pushd build/$rid
 
 	# If we have a toolchain file, then use that
-	if [ -f $rid.toolchain ]
+	if [ -f ../../$rid.toolchain ]
 	then
 		cmake -DCMAKE_TOOLCHAIN_FILE=../../$rid.toolchain -D BUILD_SHARED_LIBS=ON ../../webview/ || exit 1
 	else
@@ -38,6 +38,7 @@ do
 
 	# Build the webview library
 	make || exit 1
+	file libwebview.*
 
 	popd
 done
