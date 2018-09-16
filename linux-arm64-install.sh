@@ -17,8 +17,9 @@ deb [arch=arm64] http://ports.ubuntu.com/ bionic multiverse
 deb [arch=arm64] http://ports.ubuntu.com/ bionic-updates multiverse
 deb [arch=arm64] http://ports.ubuntu.com/ bionic-backports main restricted universe multiverse
 EOF
-sudo mv webview.list /etc/apt/sources.list.d
+sudo sed -ibk /etc/apt/sources.list.d/*.list -e 's/deb http/deb [arch=amd64] http/g'
 sudo sed -ibk /etc/apt/sources.list -e 's/deb http/deb [arch=amd64] http/g'
+sudo mv webview.list /etc/apt/sources.list.d
 sudo dpkg --add-architecture arm64
 
 sudo apt-get update
