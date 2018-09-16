@@ -11,7 +11,7 @@ case `uname` in
 			platform="Mac"
 			;;
 	# TODO: Linux needs more than one target RID
-	Linux) rids=("linux-x64")
+	Linux) rids=("linux-x64" "linux-arm64")
 		   platform="Linux"
 		   ;;
 	*) echo "Unrecognised platform `uname`" 1>&2
@@ -27,9 +27,16 @@ do
 	# Build the webview library
 	rm -rf build/$rid/
 	mkdir -p build/$rid
-	(cd build/$rid && \
-		 cmake -D BUILD_SHARED_LIBS=ON ../../webview/ && \
-		 make)
+
+	# If we have a toolchain file, then use that
+	if [ -f $rid.toolchain ]
+	then
+		(cd build/$rid && cmake -DCMAKE_TOOLCHAIN_FILE=../../$rid.toolchain -D BUILD_SHARED_LIBS=ON ../../webview/)
+	else
+		(cd build/$rid && cmake -D BUILD_SHARED_LIBS=ON ../../webview/)
+	fi
+
+	(cd build/$rid && make)
 done
 
 # Pack it all up
