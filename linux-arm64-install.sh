@@ -5,7 +5,7 @@ set -e
 ## CI Dependency install script for arm 64 
 
 # Remove the existing libraries, these conflict when instlaling
-sudo apt-get purge -y libwebkit2gtk-4.0-dev libgtk-3-dev
+sudo apt-get purge --auto-remove -y libwebkit2gtk-4.0-dev libgtk-3-dev
 
 # Add the arm64 architecture
 cat > webview.list <<EOF
