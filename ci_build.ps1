@@ -4,7 +4,7 @@
 # appropriate platform-specific build script.
 if ($PSVersionTable.Platform -eq "Unix")
 {
-    sh ./build.sh
+    bash ./build.sh
 }
 else
 {
