@@ -24,19 +24,23 @@ do
 	# log out the RID decided on
 	echo "Compiling for $rid on $platform"
 
-	# Build the webview library
+	# Clean build directory
 	rm -rf build/$rid/
 	mkdir -p build/$rid
+	pushd build/$rid
 
 	# If we have a toolchain file, then use that
 	if [ -f $rid.toolchain ]
 	then
-		(cd build/$rid && cmake -DCMAKE_TOOLCHAIN_FILE=../../$rid.toolchain -D BUILD_SHARED_LIBS=ON ../../webview/)
+		cmake -DCMAKE_TOOLCHAIN_FILE=../../$rid.toolchain -D BUILD_SHARED_LIBS=ON ../../webview/ || exit 1
 	else
-		(cd build/$rid && cmake -D BUILD_SHARED_LIBS=ON ../../webview/)
+		cmake -D BUILD_SHARED_LIBS=ON ../../webview/ || exit 1
 	fi
 
-	(cd build/$rid && make)
+	# Build the webview library
+	make || exit 1
+
+	popd
 done
 
 # Pack it all up
