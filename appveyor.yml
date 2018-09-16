@@ -4,10 +4,9 @@ image:
   - Visual Studio 2017
   - ubuntu
 install:
-  - sh: sudo apt-mark showhold
+  - sh: sudo apt-get remove -f -y powershell
   - sh: sudo apt-get install -y libwebkit2gtk-4.0-dev libgtk-3-dev
   - sh: sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
-  - sh: sudo apt-mark showhold
   - git submodule update --init --recursive
 build_script:
   - ps: .\ci_build.ps1
