@@ -20,7 +20,7 @@ EOF
 sudo mv webview.list /etc/apt/sources.list.d
 
 sudo dpkg --add-architecture arm64
-sudo apt-get update
+sudo apt-get update || true
 
 # Add the dependencies for our chosen architecture
 sudo apt-get install -y libwebkit2gtk-4.0-dev:arm64 libgtk-3-dev:arm64
