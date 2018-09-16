@@ -10,7 +10,6 @@ case `uname` in
 	Darwin) rids=("osx-x64")
 			platform="Mac"
 			;;
-	# TODO: Linux needs more than one target RID
 	Linux) rids=("linux-x64" "linux-arm64")
 		   platform="Linux"
 		   ;;
@@ -19,7 +18,7 @@ case `uname` in
 	   ;;
 esac
 
-for rid in "$rids"
+for rid in ${rids[@]}
 do
 	# log out the RID decided on
 	echo "Compiling for $rid on $platform"
