@@ -11,9 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- FIXME: Switch to multi-rid package with builds for x64, x86 & arm -->
-    <Content Include="build\linux\libwebview.so">
-      <PackagePath>runtimes\linux\native\libwebview.so</PackagePath>
+    <Content Include="build\linux-x64\libwebview.so">
+      <PackagePath>runtimes\linux-x64\native\libwebview.so</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="build\linux-arm64\libwebview.so">
+      <PackagePath>runtimes\linux-arm64\native\libwebview.so</PackagePath>
       <Pack>true</Pack>
     </Content>
   </ItemGroup>
